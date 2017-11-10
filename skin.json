@@ -1,46 +1,43 @@
 {
-	"name": "Foreground",
-	"version": "2.1.0-alpha",
+	"name": "Purple",
+	"version": "1",
 	"author": [
-		"Garrick Van Buren",
-		"Jamie Thingelstad",
-		"Tom Hutchison",
-		"..."
+		"James Hare"
 	],
-	"url": "https://github.com/thingles/foreground",
-	"descriptionmsg": "foreground-desc",
+	"url": "https://github.com/harej/purple",
+	"descriptionmsg": "purple-desc",
 	"license-name": "BSD-2-Clause",
 	"type": "skin",
 	"ValidSkinNames": {
-		"foreground": "Foreground"
+		"purple": "Purple"
 	},
 	"MessagesDirs": {
-		"SkinForeground": [
+		"SkinPurple": [
 			"i18n"
 		]
 	},
 	"AutoloadClasses": {
-		"SkinForeground": "Foreground.skin.php",
-		"foregroundTemplate": "Foreground.skin.php"
+		"SkinPurple": "Purple.skin.php",
+		"purpleTemplate": "Purple.skin.php"
 	},
 	"ResourceModules": {
-		"skins.foreground.styles": {
+		"skins.purple.styles": {
 			"position": "top",
 			"styles": [
 				"assets/stylesheets/normalize.css",
 				"assets/stylesheets/font-awesome.css",
 				"assets/stylesheets/foundation.css",
-				"assets/stylesheets/foreground.css",
-				"assets/stylesheets/foreground-print.css"
+				"assets/stylesheets/purple.css",
+				"assets/stylesheets/purple-print.css"
 			]
 		},
-		"skins.foreground.modernizr": {
+		"skins.purple.modernizr": {
 			"position": "top",
 			"scripts": [
 				"assets/scripts/vendor/modernizr.js"
 			]
 		},
-		"skins.foreground.js": {
+		"skins.purple.js": {
 			"position": "bottom",
 			"scripts": [
 				"assets/scripts/vendor/fastclick.js",
@@ -59,17 +56,17 @@
 				"assets/scripts/foundation/foundation.reveal.js",
 				"assets/scripts/foundation/foundation.tab.js",
 				"assets/scripts/foundation/foundation.tooltip.js",
-				"assets/scripts/foreground.js"
+				"assets/scripts/purple.js"
 			],
 			"dependencies": [
 				"jquery.cookie",
-				"skins.foreground.modernizr"
+				"skins.purple.modernizr"
 			]
 		}
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "",
-		"remoteSkinPath": "foreground"
+		"remoteSkinPath": "purple"
 	},
 	"config": {},
 	"manifest_version": 1

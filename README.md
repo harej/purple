@@ -1,35 +1,19 @@
-# MediaWiki Foreground Skin
+# MediaWiki Purple Skin
 
-[MediaWiki](https://www.mediawiki.org) skin that focuses on putting your content in the *foreground*. Supports responsive layouts and has classes predefined for [Semantic MediaWiki](https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki). Built on the [Zurb Foundation](http://foundation.zurb.com) CSS framework.
+[MediaWiki](https://www.mediawiki.org) skin based on "Foreground". Supports responsive layouts and has classes predefined for [Semantic MediaWiki](https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki). Built on the [Zurb Foundation](http://foundation.zurb.com) CSS framework.
 
-[![Build Status](https://travis-ci.org/thingles/foreground.svg?branch=develop)](https://travis-ci.org/thingles/foreground) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/thingles/foreground/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/thingles/foreground/?branch=develop)
-
-
-## Download
-
-First, copy the Foreground source files into your MediaWiki skins directory (see [skinning](https://www.mediawiki.org/wiki/Manual:Skinning) for general information on MediaWiki skins). You can either download the files and extract them from:
-
-    https://github.com/thingles/foreground/archive/develop.zip
-
-You should extract that into a folder named `foreground` in your `skins` directory.
-
-Alternatively, you can use git to clone the repository, which makes it very easy to update the code, using:
-
-    git clone https://github.com/thingles/foreground.git
-
-After that, you can issue `git pull` to update the code at anytime.
 
 ## Setup
 
 Once the skin is in place add one the following lines to your `LocalSettings.php` file.
 
-	wfLoadSkin( 'foreground' );
+	wfLoadSkin( 'purple' );
 
-This will activate Foreground in your installation. At this point you can select it as a user skin in your user preferences.
+This will activate Purple in your installation. At this point you can select it as a user skin in your user preferences.
 
-To activate Foreground for all users and anonymous visitors, you need to set the `$wgDefaultSkin` variable and set it to `foreground`.
+To activate Purple for all users and anonymous visitors, you need to set the `$wgDefaultSkin` variable and set it to `purple`.
 
-    $wgDefaultSkin = "foreground";
+    $wgDefaultSkin = "purple";
 
 ## Configuration
 
@@ -48,7 +32,7 @@ Use following features in `LocalSettings.php` to change the behavior.
 
 These are the default values:
 
-    $wgForegroundFeatures = array(      
+    $wgPurpleFeatures = array(      
       'showActionsForAnon' => true,
       'NavWrapperType' => 'divonly',
       'showHelpUnderTools' => true,
@@ -106,18 +90,14 @@ Important, this feature uses the free or paid version of the https://addthis.com
 
 ### Notes on other skins
 
-As you build a wiki out with Foreground you will likely use the responsive grid from Foundation. This is key to making a responsive wiki, and is one of the largest _migration_ requirements when you want to move a wiki that ppreviously used Vector (and likely a lot of tables for layout) to Foreground. Once you do this, the ability of a user to select whatever skin will be removed. If you take full advantage of Foreground in your templates the lack of the Foundation grid will make viewing the wiki using [Vector](https://wikiapiary.com/wiki/Skin:Vector) or [MonoBook](https://wikiapiary.com/wiki/Skin:MonoBook) very difficult.
+As you build a wiki out with Purple you will likely use the responsive grid from Foundation. This is key to making a responsive wiki, and is one of the largest _migration_ requirements when you want to move a wiki that previously used Vector (and likely a lot of tables for layout) to Purple. Once you do this, the ability of a user to select whatever skin will be removed. If you take full advantage of Purple in your templates the lack of the Foundation grid will make viewing the wiki using [Vector](https://wikiapiary.com/wiki/Skin:Vector) or [MonoBook](https://wikiapiary.com/wiki/Skin:MonoBook) very difficult.
 
 Because of this, it is suggested that you set the `$wgSkipSkins` variable to make sure that everyone sees the site as you intended it. This removes other skins from being user selectable options.
 
-    # Foreground is specific, so lets disable other skins
+    # Purple is specific, so lets disable other skins
     $wgSkipSkins = array( 'cologneblue', 'modern', 'monobook', 'vector' );
 
-You may also want to allow users to set a User CSS if they want to tweak things inside of Foreground. This is entirely optional.
+You may also want to allow users to set a User CSS if they want to tweak things inside of Purple. This is entirely optional.
 
     # Allow User CSS, mostly for skin testing
     $wgAllowUserCss = true;
-
-## Using Foreground
-
-There is a [mailing list to discuss Foreground](https://lists.wikimedia.org/mailman/listinfo/foreground). Please join to connect with others and explore questions about using Foreground on your wiki. You can see a list of wikis with [Foreground installed at WikiApiary](https://wikiapiary.com/wiki/Skin:Foreground).

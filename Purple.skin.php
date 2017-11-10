@@ -1,20 +1,20 @@
 <?php
 
 /**
- * Skin file for Foreground
+ * Skin file for Purple
  *
  * @file
  * @ingroup Skins
  */
  
 
-class Skinforeground extends SkinTemplate {
-	public $skinname = 'foreground', $stylename = 'foreground', $template = 'foregroundTemplate', $useHeadElement = true;
+class SkinPurple extends SkinTemplate {
+	public $skinname = 'purple', $stylename = 'purple', $template = 'purpleTemplate', $useHeadElement = true;
 
 	public function setupSkinUserCss(OutputPage $out) {
 		parent::setupSkinUserCss($out);
-		global $wgForegroundFeatures;
-		$wgForegroundFeaturesDefaults = array(
+		global $wgPurpleFeatures;
+		$wgPurpleFeaturesDefaults = array(
 			'showActionsForAnon' => true,
 			'NavWrapperType' => 'divonly',
 			'showHelpUnderTools' => true,
@@ -26,12 +26,12 @@ class Skinforeground extends SkinTemplate {
 			'showFooterIcons' => 0,
 			'addThisFollowPUBID' => ''
 		);
-		foreach ($wgForegroundFeaturesDefaults as $fgOption => $fgOptionValue) {
-			if ( !isset($wgForegroundFeatures[$fgOption]) ) {
-				$wgForegroundFeatures[$fgOption] = $fgOptionValue;
+		foreach ($wgPurpleFeaturesDefaults as $fgOption => $fgOptionValue) {
+			if ( !isset($wgPurpleFeatures[$fgOption]) ) {
+				$wgPurpleFeatures[$fgOption] = $fgOptionValue;
 			}
 		}
-		switch ($wgForegroundFeatures['IeEdgeCode']) {
+		switch ($wgPurpleFeatures['IeEdgeCode']) {
 			case 1:
 				$out->addHeadItem('ie-meta', '<meta http-equiv="X-UA-Compatible" content="IE=edge" />');
 				break;
@@ -40,7 +40,7 @@ class Skinforeground extends SkinTemplate {
 					header('X-UA-Compatible: IE=edge');
 				break;
 		}
-		$out->addModuleStyles('skins.foreground.styles');
+		$out->addModuleStyles('skins.purple.styles');
 	}
 
 	public function initPage( OutputPage $out ) {
@@ -49,18 +49,18 @@ class Skinforeground extends SkinTemplate {
 
 		$viewport_meta = 'width=device-width, user-scalable=yes, initial-scale=1.0';
 		$out->addMeta('viewport', $viewport_meta);
-		$out->addModules('skins.foreground.js');
+		$out->addModules('skins.purple.js');
 	}
 
 }
 
-class foregroundTemplate extends BaseTemplate {
+class purpleTemplate extends BaseTemplate {
 	public function execute() {
 		global $wgUser;
-		global $wgForegroundFeatures;
+		global $wgPurpleFeatures;
 		wfSuppressWarnings();
 		$this->html('headelement');
-		switch ($wgForegroundFeatures['enableTabs']) {
+		switch ($wgPurpleFeatures['enableTabs']) {
 			case true:
 			    ob_start();
 				$this->html('bodytext');
@@ -74,14 +74,14 @@ class foregroundTemplate extends BaseTemplate {
 				$body = '';
 				break;
 		}
-		switch ($wgForegroundFeatures['NavWrapperType']) {
+		switch ($wgPurpleFeatures['NavWrapperType']) {
 			case '0':
 				break;
 			case 'divonly':
 				echo "<div id='navwrapper'>";
 				break;
 			default:
-				echo "<div id='navwrapper' class='". $wgForegroundFeatures['NavWrapperType']. "'>";
+				echo "<div id='navwrapper' class='". $wgPurpleFeatures['NavWrapperType']. "'>";
 				break;
 		}
 		// Set default variables for footer and switch them if 'showFooterIcons' => true
@@ -89,7 +89,7 @@ class foregroundTemplate extends BaseTemplate {
 		$footerRightClass = 'large-12 small-12 columns';
 		$poweredbyType = "nocopyright";
 		$poweredbyMakeType = 'withoutImage';
-		switch ($wgForegroundFeatures['showFooterIcons']) {
+		switch ($wgPurpleFeatures['showFooterIcons']) {
 			case true:
 				$footerLeftClass = 'large-8 small-12 columns';
 				$footerRightClass = 'large-4 small-12 columns';
@@ -101,20 +101,20 @@ class foregroundTemplate extends BaseTemplate {
 		}
 ?>
 <!-- START FOREGROUNDTEMPLATE -->
-		<nav class="top-bar" data-topbar role="navigation" data-options="back_text: <?php echo wfMessage( 'foreground-menunavback' )->text(); ?>">
+		<nav class="top-bar" data-topbar role="navigation" data-options="back_text: <?php echo wfMessage( 'purple-menunavback' )->text(); ?>">
 			<ul class="title-area">
 				<li class="name">
 					<div class="title-name">
 					<a href="<?php echo $this->data['nav_urls']['mainpage']['href']; ?>">
-					<?php if ($wgForegroundFeatures['navbarIcon'] != '0') { ?>
+					<?php if ($wgPurpleFeatures['navbarIcon'] != '0') { ?>
 						<img alt="<?php echo $this->text('sitename'); ?>" class="top-bar-logo" src="<?php echo $this->text('logopath') ?>">
 					<?php } ?>					
-					<div class="title-name" style="display: inline-block;"><?php echo $wgForegroundFeatures['wikiName']; ?></div>
+					<div class="title-name" style="display: inline-block;"><?php echo $wgPurpleFeatures['wikiName']; ?></div>
 					</a>
 					</div>
 				</li>
 				<li class="toggle-topbar menu-icon">
-					<a href="#"><span><?php echo wfMessage( 'foreground-menutitle' )->text(); ?></span></a>
+					<a href="#"><span><?php echo wfMessage( 'purple-menutitle' )->text(); ?></span></a>
 				</li>
 			</ul>
 
@@ -146,15 +146,15 @@ class foregroundTemplate extends BaseTemplate {
 				</li>
 				<li class="divider show-for-small"></li>
 
-				<li class="has-dropdown active"><a href="#"><i class="fa fa-cogs"></i></a>
+				<li class="has-dropdown active"><a href="#"><i class="fa fa-cogs"></i>&nbsp;<?php echo wfMessage( 'toolbox' )->text() ?></a>
 					<ul id="toolbox-dropdown" class="dropdown">
 						<?php foreach ( $this->getToolbox() as $key => $item ) { echo $this->makeListItem($key, $item); } ?>
-						<?php if ($wgForegroundFeatures['showRecentChangesUnderTools']): ?><li id="n-recentchanges"><?php echo Linker::specialLink('Recentchanges') ?></li><?php endif; ?>
-						<?php if ($wgForegroundFeatures['showHelpUnderTools']): ?><li id="n-help" <?php echo Linker::tooltip('help') ?>><a href="<?php echo Skin::makeInternalOrExternalUrl( wfMessage( 'helppage' )->inContentLanguage()->text() )?>"><?php echo wfMessage( 'help' )->text() ?></a></li><?php endif; ?>
+						<?php if ($wgPurpleFeatures['showRecentChangesUnderTools']): ?><li id="n-recentchanges"><?php echo Linker::specialLink('Recentchanges') ?></li><?php endif; ?>
+						<?php if ($wgPurpleFeatures['showHelpUnderTools']): ?><li id="n-help" <?php echo Linker::tooltip('help') ?>><a href="<?php echo Skin::makeInternalOrExternalUrl( wfMessage( 'helppage' )->inContentLanguage()->text() )?>"><?php echo wfMessage( 'help' )->text() ?></a></li><?php endif; ?>
 					</ul>
 				</li>
 
-				<li id="personal-tools-dropdown" class="has-dropdown active"><a href="#"><i class="fa fa-user"></i></a>
+				<li id="personal-tools-dropdown" class="has-dropdown active"><a href="#"><i class="fa fa-user"></i>&nbsp;<?php echo wfMessage( 'login' )->text() ?></a>
 					<ul class="dropdown">
 						<?php foreach ( $this->getPersonalTools() as $key => $item ) { echo $this->makeListItem($key, $item); } ?>
 					</ul>
@@ -164,7 +164,7 @@ class foregroundTemplate extends BaseTemplate {
 		</section>
 		</nav>
 		
-		<?php if ($wgForegroundFeatures['NavWrapperType'] != '0') echo "</div>"; ?>
+		<?php if ($wgPurpleFeatures['NavWrapperType'] != '0') echo "</div>"; ?>
 		
 		<div id="page-content">
 		<div class="row">
@@ -180,7 +180,7 @@ class foregroundTemplate extends BaseTemplate {
 					</div>
 					<?php endif; ?>
 				<!--[if lt IE 9]>
-				<div id="siteNotice" class="sitenotice panel radius"><?php echo $this->text('sitename') . ' '. wfMessage( 'foreground-browsermsg' )->text(); ?></div>
+				<div id="siteNotice" class="sitenotice panel radius"><?php echo $this->text('sitename') . ' '. wfMessage( 'purple-browsermsg' )->text(); ?></div>
 				<![endif]-->
 
 				<?php if ( $this->data['sitenotice'] ) { ?><div id="siteNotice" class="sitenotice"><?php $this->html( 'sitenotice' ); ?></div><?php } ?>
@@ -192,7 +192,7 @@ class foregroundTemplate extends BaseTemplate {
 
 		<div class="row">
 				<div id="p-cactions" class="large-12 columns">
-					<?php if ($wgUser->isLoggedIn() || $wgForegroundFeatures['showActionsForAnon']): ?>
+					<?php if ($wgUser->isLoggedIn() || $wgPurpleFeatures['showActionsForAnon']): ?>
 						<a id="actions-button" href="#" data-dropdown="actions" data-options="align:left; is_hover: true; hover_timeout:700" class="button small secondary radius"><i class="fa fa-cog"><span class="show-for-medium-up">&nbsp;<?php echo wfMessage( 'actions' )->text() ?></span></i></a>
 						<!--RTL -->
 						<ul id="actions" class="f-dropdown" data-dropdown-content>
@@ -215,7 +215,7 @@ class foregroundTemplate extends BaseTemplate {
 					<div id="contentSub" class="clear_both"></div>
 					<div id="bodyContent" class="mw-bodytext">
 						<?php 
-							switch ($wgForegroundFeatures['enableTabs']) {
+							switch ($wgPurpleFeatures['enableTabs']) {
 								case true:
 									echo $body;
 									break;
@@ -232,37 +232,38 @@ class foregroundTemplate extends BaseTemplate {
 		    </div>
 		</div>
 
-			<footer class="row">
-				<div id="footer">
-					<?php if ($wgForegroundFeatures['addThisFollowPUBID'] != '') { ?>
-						<div class="social-footer large-12 small-12 columns">
-							<div class="social-links">
-							<!-- Go to www.addthis.com/dashboard to customize your tools -->
-							<div class="addthis_horizontal_follow_toolbox"></div>
-							<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<?php echo $wgForegroundFeatures['addThisFollowPUBID'];?>"></script>
+			<div id="footerContainer">
+				<footer class="row">
+					<div id="footer">
+						<?php if ($wgPurpleFeatures['addThisFollowPUBID'] != '') { ?>
+							<div class="social-footer large-12 small-12 columns">
+								<div class="social-links">
+								<!-- Go to www.addthis.com/dashboard to customize your tools -->
+								<div class="addthis_horizontal_follow_toolbox"></div>
+								<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<?php echo $wgPurpleFeatures['addThisFollowPUBID'];?>"></script>
+								</div>
 							</div>
-						</div>
-					<?php } ?>
-					<div id="footer-left" class="<?php echo $footerLeftClass;?>">
-					<ul id="footer-left">
-						<?php foreach ( $this->getFooterLinks( "flat" ) as $key ) { ?>
-							<li id="footer-<?php echo $key ?>"><?php $this->html( $key ) ?></li>
-						<?php } ?>									
-					</ul>
-					</div>	
-					<div id="footer-right-icons" class="<?php echo $footerRightClass;?>">
-					<ul id="poweredby">
-						<?php foreach ( $this->getFooterIcons( $poweredbyType ) as $blockName => $footerIcons ) { ?>
-							<li class="<?php echo $blockName ?>"><?php foreach ( $footerIcons as $icon ) { ?>
-								<?php echo $this->getSkin()->makeFooterIcon( $icon, $poweredbyMakeType ); ?>
-								<?php } ?>
-							</li>
 						<?php } ?>
-					</ul>
-					</div>								
-				</div>
-			</footer>
-
+						<div id="footer-left" class="<?php echo $footerLeftClass;?>">
+						<ul id="footer-left">
+							<?php foreach ( $this->getFooterLinks( "flat" ) as $key ) { ?>
+								<li id="footer-<?php echo $key ?>"><?php $this->html( $key ) ?></li>
+							<?php } ?>									
+						</ul>
+						</div>	
+						<div id="footer-right-icons" class="<?php echo $footerRightClass;?>">
+						<ul id="poweredby">
+							<?php foreach ( $this->getFooterIcons( $poweredbyType ) as $blockName => $footerIcons ) { ?>
+								<li class="<?php echo $blockName ?>"><?php foreach ( $footerIcons as $icon ) { ?>
+									<?php echo $this->getSkin()->makeFooterIcon( $icon, $poweredbyMakeType ); ?>
+									<?php } ?>
+								</li>
+							<?php } ?>
+						</ul>
+						</div>								
+					</div>
+				</footer>
+			</div>
 		</div>
 		
 		<?php $this->printTrail(); ?>

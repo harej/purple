@@ -1,13 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Garrick Van Buren",
-			"Tom Hutchison"
+			"Harej"
 		]
 	},
-	"skinname-foreground": "Foreground",
-	"foreground-desc": "Provides a skin that focuses on putting your content in the foreground",
-	"foreground-browsermsg": "may not look as expected in this version of Internet Explorer. We recommend you upgrade to a newer version of Internet Explorer or switch to a browser like Firefox or Chrome.",
-	"foreground-menutitle": "Menu",
-	"foreground-menunavback": "Back"
+	"skinname-purple": "Purple",
+	"purple-desc": "A tuned-up derivative of the Foreground skin",
+	"purple-browsermsg": "may not look as expected in this version of Internet Explorer. We recommend you upgrade to a newer version of Internet Explorer or switch to a browser like Firefox or Chrome.",
+	"purple-menutitle": "Menu",
+	"purple-menunavback": "Back"
 }

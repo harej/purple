@@ -2,12 +2,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kghbln"
+			"Harej"
 		]
 	},
-	"skinname-foreground": "{{Notranslate}}\n\nThis this is the name of the skin.",
-	"foreground-desc": "{{desc|what=skin|name=Foreground|url=https://www.mediawiki.org/wiki/Skin:Foreground}}",
-	"foreground-browsermsg": "This is an error message.",
-	"foreground-menutitle": "This is a label.",
-	"foreground-menunavback": "This is a label."
+	"skinname-purple": "{{Notranslate}}\n\nThis this is the name of the skin.",
+	"purple-desc": "{{desc|what=skin|name=purple|url=https://www.mediawiki.org/wiki/Skin:purple}}",
+	"purple-browsermsg": "This is an error message.",
+	"purple-menutitle": "This is a label.",
+	"purple-menunavback": "This is a label."
 }

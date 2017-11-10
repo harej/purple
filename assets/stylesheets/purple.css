@@ -45,7 +45,7 @@
 
 body {
 	font-family: 'Heebo', 'Helvetica Neue', 'Helvetica', sans-serif;
-	background: #6b28ff;
+	background: #4b3d6b;
 }
 
 #page-content {
@@ -225,7 +225,7 @@ div {
 #footerContainer {
 	padding-top: 0.35em;
 	margin-top: 2em;
-	background: #6b28ff;
+	background: #4b3d6b;
 }
 #footerContainer a {
 	color: #c7eefb;
@@ -684,7 +684,7 @@ body.page-Main_Page h1.firstHeading, body.page-Main_Page #siteSub, body.page-Ext
 .top-bar-section ul li.active > a, 
 .top-bar-section li a:not(.button), 
 .top-bar-section .has-form {
-    background: #6b28ff !important;
+    background: #4b3d6b !important;
 }
 
 

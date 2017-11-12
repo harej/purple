@@ -64,8 +64,6 @@ class PurpleTemplate extends BaseTemplate {
 		global $wgUser;
 		global $wgPurpleFeatures;
 
-		wfSuppressWarnings();
-
 		$this->html( 'headelement' );
 
 		switch ( $wgPurpleFeatures['enableTabs'] ) {
@@ -310,6 +308,5 @@ class PurpleTemplate extends BaseTemplate {
 		</body>
 		</html>
 <?php
-		wfRestoreWarnings();
 	}
 }

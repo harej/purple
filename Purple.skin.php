@@ -9,7 +9,7 @@
 
 class SkinPurple extends SkinTemplate {
 	public $skinname = 'purple', $stylename = 'purple',
-		$template = 'purpleTemplate', $useHeadElement = true;
+		$template = 'PurpleTemplate', $useHeadElement = true;
 
 	public function setupSkinUserCss( OutputPage $out ) {
 		global $wgPurpleFeatures;
@@ -59,7 +59,7 @@ class SkinPurple extends SkinTemplate {
 
 }
 
-class purpleTemplate extends BaseTemplate {
+class PurpleTemplate extends BaseTemplate {
 	public function execute() {
 		global $wgUser;
 		global $wgPurpleFeatures;
@@ -169,8 +169,12 @@ class purpleTemplate extends BaseTemplate {
 
 				<li class="has-dropdown active"><a href="#"><i class="fa fa-cogs"></i>&nbsp;<?php echo wfMessage( 'toolbox' )->text() ?></a>
 					<ul id="toolbox-dropdown" class="dropdown">
-						<?php foreach ( $this->getToolbox() as $key => $item ) { echo $this->makeListItem( $key, $item ); } ?>
-						<?php if ( $wgPurpleFeatures['showRecentChangesUnderTools'] ): ?><li id="n-recentchanges"><?php echo Linker::specialLink('Recentchanges') ?></li><?php endif; ?>
+						<?php
+						foreach ( $this->getToolbox() as $key => $item ) {
+							echo $this->makeListItem( $key, $item );
+						}
+						?>
+						<?php if ( $wgPurpleFeatures['showRecentChangesUnderTools'] ): ?><li id="n-recentchanges"><?php echo Linker::specialLink( 'Recentchanges' ) ?></li><?php endif; ?>
 						<?php if ( $wgPurpleFeatures['showHelpUnderTools'] ): ?><li id="n-help" <?php echo Linker::tooltip('help') ?>><a href="<?php echo Skin::makeInternalOrExternalUrl( wfMessage( 'helppage' )->inContentLanguage()->text() ) ?>"><?php echo wfMessage( 'help' )->text() ?></a></li><?php endif; ?>
 					</ul>
 				</li>

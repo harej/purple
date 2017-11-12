@@ -1,4 +1,3 @@
-
 {
 	"@metadata": {
 		"authors": [
@@ -6,7 +5,7 @@
 		]
 	},
 	"skinname-purple": "{{Notranslate}}\n\nThis this is the name of the skin.",
-	"purple-desc": "{{desc|what=skin|name=purple|url=https://www.mediawiki.org/wiki/Skin:purple}}",
+	"purple-desc": "{{desc|what=skin|name=Purple|url=https://www.mediawiki.org/wiki/Skin:Purple}}",
 	"purple-browsermsg": "This is an error message.",
 	"purple-menutitle": "This is a label.",
 	"purple-menunavback": "This is a label."

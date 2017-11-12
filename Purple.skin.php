@@ -61,7 +61,6 @@ class SkinPurple extends SkinTemplate {
 
 class PurpleTemplate extends BaseTemplate {
 	public function execute() {
-		global $wgUser;
 		global $wgPurpleFeatures;
 
 		$this->html( 'headelement' );
@@ -107,9 +106,13 @@ class PurpleTemplate extends BaseTemplate {
 			default:
 				break;
 		}
+
+		$skin = $this->getSkin();
+		$user = $skin->getUser();
+		$title = $skin->getTitle();
 ?>
 <!-- START FOREGROUNDTEMPLATE -->
-		<nav class="top-bar" data-topbar role="navigation" data-options="back_text: <?php echo wfMessage( 'purple-menunavback' )->text(); ?>">
+		<nav class="top-bar" data-topbar role="navigation" data-options="back_text: <?php echo $skin->msg( 'purple-menunavback' )->text(); ?>">
 			<ul class="title-area">
 				<li class="name">
 					<div class="title-name">
@@ -122,7 +125,7 @@ class PurpleTemplate extends BaseTemplate {
 					</div>
 				</li>
 				<li class="toggle-topbar menu-icon">
-					<a href="#"><span><?php echo wfMessage( 'purple-menutitle' )->text(); ?></span></a>
+					<a href="#"><span><?php echo $skin->msg( 'purple-menutitle' )->text(); ?></span></a>
 				</li>
 			</ul>
 
@@ -132,7 +135,7 @@ class PurpleTemplate extends BaseTemplate {
 				<li class="divider show-for-small"></li>
 					<?php
 					foreach ( $this->getSidebar() as $boxName => $box ) {
-						if ( ( $box['header'] != wfMessage( 'toolbox' )->text() ) ) { ?>
+						if ( ( $box['header'] != $skin->msg( 'toolbox' )->text() ) ) { ?>
 				<li class="has-dropdown active" id="<?php echo Sanitizer::escapeId( $box['id'] ) ?>"<?php echo Linker::tooltip( $box['id'] ) ?>>
 					<a href="#"><?php echo htmlspecialchars( $box['header'] ); ?></a>
 						<?php if ( is_array( $box['content'] ) ) { ?>
@@ -155,17 +158,17 @@ class PurpleTemplate extends BaseTemplate {
 						<div class="row collapse">
 						<div class="small-12 columns">
 							<?php echo $this->makeSearchInput( array(
-								'placeholder' => wfMessage( 'searchsuggest-search' )->text(),
+								'placeholder' => $skin->msg( 'searchsuggest-search' )->text(),
 								'id' => 'searchInput'
 							) ); ?>
-							<button type="submit" class="button search"><?php echo wfMessage( 'search' )->text() ?></button>
+							<button type="submit" class="button search"><?php echo $skin->msg( 'search' )->text() ?></button>
 						</div>
 						</div>
 					</form>
 				</li>
 				<li class="divider show-for-small"></li>
 
-				<li class="has-dropdown active"><a href="#"><i class="fa fa-cogs"></i>&nbsp;<?php echo wfMessage( 'toolbox' )->text() ?></a>
+				<li class="has-dropdown active"><a href="#"><i class="fa fa-cogs"></i>&nbsp;<?php echo $skin->msg( 'toolbox' )->text() ?></a>
 					<ul id="toolbox-dropdown" class="dropdown">
 						<?php
 						foreach ( $this->getToolbox() as $key => $item ) {
@@ -173,11 +176,11 @@ class PurpleTemplate extends BaseTemplate {
 						}
 						?>
 						<?php if ( $wgPurpleFeatures['showRecentChangesUnderTools'] ): ?><li id="n-recentchanges"><?php echo Linker::specialLink( 'Recentchanges' ) ?></li><?php endif; ?>
-						<?php if ( $wgPurpleFeatures['showHelpUnderTools'] ): ?><li id="n-help" <?php echo Linker::tooltip('help') ?>><a href="<?php echo Skin::makeInternalOrExternalUrl( wfMessage( 'helppage' )->inContentLanguage()->text() ) ?>"><?php echo wfMessage( 'help' )->text() ?></a></li><?php endif; ?>
+						<?php if ( $wgPurpleFeatures['showHelpUnderTools'] ): ?><li id="n-help" <?php echo Linker::tooltip( 'help' ) ?>><a href="<?php echo Skin::makeInternalOrExternalUrl( $skin->msg( 'helppage' )->inContentLanguage()->text() ) ?>"><?php echo $skin->msg( 'help' )->text() ?></a></li><?php endif; ?>
 					</ul>
 				</li>
 
-				<li id="personal-tools-dropdown" class="has-dropdown active"><a href="#"><i class="fa fa-user"></i>&nbsp;<?php echo wfMessage( 'login' )->text() ?></a>
+				<li id="personal-tools-dropdown" class="has-dropdown active"><a href="#"><i class="fa fa-user"></i>&nbsp;<?php echo $skin->msg( 'login' )->text() ?></a>
 					<ul class="dropdown">
 						<?php
 						foreach ( $this->getPersonalTools() as $key => $item ) {
@@ -199,7 +202,7 @@ class PurpleTemplate extends BaseTemplate {
 					<!-- Output page indicators -->
 					<?php echo $this->getIndicators(); ?>
 					<!-- If user is logged in output echo location -->
-					<?php if ( $wgUser->isLoggedIn() ): ?>
+					<?php if ( $user->isLoggedIn() ): ?>
 					<div id="echo-notifications">
 					<div id="echo-notifications-alerts"></div>
 					<div id="echo-notifications-messages"></div>
@@ -207,7 +210,7 @@ class PurpleTemplate extends BaseTemplate {
 					</div>
 					<?php endif; ?>
 				<!--[if lt IE 9]>
-				<div id="siteNotice" class="sitenotice panel radius"><?php echo wfMessage( 'purple-browsermsg', $this->text( 'sitename' ) )->text(); ?></div>
+				<div id="siteNotice" class="sitenotice panel radius"><?php echo $skin->msg( 'purple-browsermsg', $this->text( 'sitename' ) )->text(); ?></div>
 				<![endif]-->
 
 				<?php if ( $this->data['sitenotice'] ) { ?><div id="siteNotice" class="sitenotice"><?php $this->html( 'sitenotice' ); ?></div><?php } ?>
@@ -219,8 +222,8 @@ class PurpleTemplate extends BaseTemplate {
 
 		<div class="row">
 				<div id="p-cactions" class="large-12 columns">
-					<?php if ( $wgUser->isLoggedIn() || $wgPurpleFeatures['showActionsForAnon'] ): ?>
-						<a id="actions-button" href="#" data-dropdown="actions" data-options="align:left; is_hover: true; hover_timeout:700" class="button small secondary radius"><i class="fa fa-cog"><span class="show-for-medium-up">&nbsp;<?php echo wfMessage( 'actions' )->text() ?></span></i></a>
+					<?php if ( $user->isLoggedIn() || $wgPurpleFeatures['showActionsForAnon'] ): ?>
+						<a id="actions-button" href="#" data-dropdown="actions" data-options="align:left; is_hover: true; hover_timeout:700" class="button small secondary radius"><i class="fa fa-cog"><span class="show-for-medium-up">&nbsp;<?php echo $skin->msg( 'actions' )->text() ?></span></i></a>
 						<!--RTL -->
 						<ul id="actions" class="f-dropdown" data-dropdown-content>
 							<?php
@@ -232,15 +235,17 @@ class PurpleTemplate extends BaseTemplate {
 								);
 							}
 							?>
-							<?php wfRunHooks( 'SkinTemplateToolboxEnd', array( &$this, true ) );  ?>
+							<?php Hooks::run( 'SkinTemplateToolboxEnd', array( &$this, true ) );  ?>
 						</ul>
 						<!--RTL -->
 					<?php endif;
-					$namespace = str_replace( '_', ' ', $this->getSkin()->getTitle()->getNsText() );
+					$namespace = str_replace( '_', ' ', $title->getNsText() );
 					$displaytitle = $this->data['title'];
 					if ( !empty( $namespace ) ) {
-						$pagetitle = $this->getSkin()->getTitle();
-						$newtitle = str_replace( $namespace . ':', '', $pagetitle);
+						// @todo FIXME: $title is actually a Title object so
+						// this is relying on an implicit conversion to string
+						$pagetitle = $title;
+						$newtitle = str_replace( $namespace . ':', '', $pagetitle );
 						$displaytitle = str_replace( $pagetitle, $newtitle, $displaytitle );
 					?><h4 class="namespace label"><?php echo $namespace; ?></h4><?php } ?>
 					<div id="content">
@@ -291,7 +296,7 @@ class PurpleTemplate extends BaseTemplate {
 							<?php foreach ( $this->getFooterIcons( $poweredbyType ) as $blockName => $footerIcons ) { ?>
 								<li class="<?php echo $blockName ?>"><?php
 									foreach ( $footerIcons as $icon ) {
-										echo $this->getSkin()->makeFooterIcon( $icon, $poweredbyMakeType );
+										echo $skin->makeFooterIcon( $icon, $poweredbyMakeType );
 									}
 								?>
 								</li>

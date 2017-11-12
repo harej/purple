@@ -209,7 +209,7 @@ class PurpleTemplate extends BaseTemplate {
 					</div>
 					<?php endif; ?>
 				<!--[if lt IE 9]>
-				<div id="siteNotice" class="sitenotice panel radius"><?php echo $this->text( 'sitename' ) . ' ' . wfMessage( 'purple-browsermsg' )->text(); ?></div>
+				<div id="siteNotice" class="sitenotice panel radius"><?php echo wfMessage( 'purple-browsermsg', $this->text( 'sitename' ) )->text(); ?></div>
 				<![endif]-->
 
 				<?php if ( $this->data['sitenotice'] ) { ?><div id="siteNotice" class="sitenotice"><?php $this->html( 'sitenotice' ); ?></div><?php } ?>

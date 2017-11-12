@@ -6,7 +6,7 @@
 	},
 	"skinname-purple": "{{Notranslate}}\n\nThis this is the name of the skin.",
 	"purple-desc": "{{desc|what=skin|name=Purple|url=https://www.mediawiki.org/wiki/Skin:Purple}}",
-	"purple-browsermsg": "This is an error message.",
+	"purple-browsermsg": "This is an error message shown to users of Internet Explorer 8 and older versions. $1 is the site name of the wiki.",
 	"purple-menutitle": "This is a label.",
 	"purple-menunavback": "This is a label."
 }

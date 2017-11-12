@@ -5,6 +5,6 @@
 		]
 	},
 	"skinname-purple": "Purple",
-	"purple-browsermsg": "wordt mogelijk niet goed weergegeven in deze versie van Internet Explorer. Aanbevolen wordt te upgraden naar een nieuwere versie van Internet Explorer of om te schakelen naar een browser zoals Firefox of Chrome.",
+	"purple-browsermsg": "$1 wordt mogelijk niet goed weergegeven in deze versie van Internet Explorer. Aanbevolen wordt te upgraden naar een nieuwere versie van Internet Explorer of om te schakelen naar een browser zoals Firefox of Chrome.",
 	"purple-menutitle": "Menu"
 }

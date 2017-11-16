@@ -745,7 +745,7 @@ span.smwbuiltin,span.smwttactiveinline span.smwbuiltin {
     float: right;
     position: relative;
     z-index: 500;
-    max-height: 30px
+    max-height: 30px;
     top: 1.5rem;
 }
 

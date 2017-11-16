@@ -743,10 +743,10 @@ span.smwbuiltin,span.smwttactiveinline span.smwbuiltin {
 
 #echo-notifications {
     float: right;
-    margin: -1em 1em .5em;
     position: relative;
     z-index: 500;
     max-height: 30px
+    top: 1.5rem;
 }
 
 #echo-notifications,#echo-notifications-alerts,#echo-notifications-messages,#echo-notifications-notice,.editButtons input[type=submit] {

@@ -7,7 +7,7 @@
 
 Once the skin is in place add one the following lines to your `LocalSettings.php` file.
 
-	wfLoadSkin( 'purple' );
+	wfLoadSkin( 'Purple' );
 
 This will activate Purple in your installation. At this point you can select it as a user skin in your user preferences.
 
@@ -17,10 +17,10 @@ To activate Purple for all users and anonymous visitors, you need to set the `$w
 
 ## Configuration
 
-Use following features in `LocalSettings.php` to change the behavior. 
+Use following features in `LocalSettings.php` to change the behavior.
 
 - `showActionsForAnon => true` displays page actions for non-logged-in visitors.
-- `NavWrapperType => 'divonly'`: only a div with id `navwrapper` will be created. `'0'` - no div will be created (old behavior), other values will be used as class. 
+- `NavWrapperType => 'divonly'`: only a div with id `navwrapper` will be created. `'0'` - no div will be created (old behavior), other values will be used as class.
 - `showHelpUnderTools => true` a Link to "Help" will be created under "Tools".
 - `showRecentChangesUnderTools => true` a Link to "recent changes" will be created under "Tools".
 - `'enableTabs' => true` for tabs on page support.
@@ -32,7 +32,7 @@ Use following features in `LocalSettings.php` to change the behavior.
 
 These are the default values:
 
-    $wgPurpleFeatures = array(      
+    $wgPurpleFeatures = array(
       'showActionsForAnon' => true,
       'NavWrapperType' => 'divonly',
       'showHelpUnderTools' => true,
@@ -44,14 +44,14 @@ These are the default values:
       'showFooterIcons' => 0,
       'addThisFollowPUBID' => ''
     );
-	
+
 ### Usage of NavWrapperType
 
 With a setting like:
 
     'NavWrapperType' => 'divonly'
 
-and the created div called `navwrapper` anonymous visitors can change the setting of navbar (fixed or sticky) by 
+and the created div called `navwrapper` anonymous visitors can change the setting of navbar (fixed or sticky) by
 User-Script (Firefox-extensions like greasemonkey or scriptish), users can take a gadget or their JavaScript, CSS ... :
 
     $('#navwrapper').addClass('sticky');

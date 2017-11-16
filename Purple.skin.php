@@ -234,8 +234,11 @@ class PurpleTemplate extends BaseTemplate {
 									$this->makeListItem( $key, $item )
 								);
 							}
+
+							// Avoid PHP 7.1 warnings
+							$tpl = $this;
+							Hooks::run( 'SkinTemplateToolboxEnd', array( &$tpl, true ) );
 							?>
-							<?php Hooks::run( 'SkinTemplateToolboxEnd', array( &$this, true ) );  ?>
 						</ul>
 						<!--RTL -->
 					<?php endif;

@@ -1,4 +1,4 @@
-jQuery( document ).ready( function() {
+jQuery( function() {
 	jQuery( document ).foundation( function ( response ) {
 		// console.log(response.errors); < this line will produce error in ie9!
 		if ( window.console ) {

@@ -18,7 +18,7 @@
 	},
 	"AutoloadClasses": {
 		"SkinPurple": "Purple.skin.php",
-		"purpleTemplate": "Purple.skin.php"
+		"PurpleTemplate": "Purple.skin.php"
 	},
 	"ResourceModules": {
 		"skins.purple.styles": {
@@ -66,7 +66,7 @@
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "",
-		"remoteSkinPath": "purple"
+		"remoteSkinPath": "Purple"
 	},
 	"config": {},
 	"manifest_version": 1

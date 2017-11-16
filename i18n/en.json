@@ -6,7 +6,7 @@
 	},
 	"skinname-purple": "Purple",
 	"purple-desc": "A tuned-up derivative of the Foreground skin",
-	"purple-browsermsg": "may not look as expected in this version of Internet Explorer. We recommend you upgrade to a newer version of Internet Explorer or switch to a browser like Firefox or Chrome.",
+	"purple-browsermsg": "$1 may not look as expected in this version of Internet Explorer. We recommend you upgrade to a newer version of Internet Explorer or switch to a browser like Firefox or Chrome.",
 	"purple-menutitle": "Menu",
 	"purple-menunavback": "Back"
 }

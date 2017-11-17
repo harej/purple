@@ -296,11 +296,11 @@ li label.inline {
 	padding: 0;
 }
 
-.button,button {
+.button,
+button {
 	background: #6b28ff;
 }
 
-#preftoc > li.selected,
 .button:hover,
 button:hover {
 	background: #36c;
@@ -582,8 +582,7 @@ footer.row ul.columns li {
 	width: auto;
 }
 
-#mw-normal-catlinks a.new,
-#preftoc li a:hover {
+#mw-normal-catlinks a.new {
 	color: #fff;
 }
 
@@ -596,7 +595,10 @@ h2 {
 	margin-bottom: .75em;
 }
 
-h3,h4,h5,h6 {
+h3,
+h4,
+h5,
+h6 {
 	margin-top: .75em;
 	margin-bottom: .5em;
 }
@@ -698,7 +700,8 @@ input[name="*[* date][second]"] {
 	margin-right: 1em;
 }
 
-.inputSpan .button,.inputSpan button {
+.inputSpan .button,
+.inputSpan button {
 	margin: -4px 0 0;
 	padding: .37em .75em .6em .7em;
 }
@@ -755,7 +758,8 @@ textarea {
 	padding: 4px;
 }
 
-.button,button {
+.button,
+button {
 	margin: .5em 0;
 	padding: .3em .75em .4em;
 }
@@ -927,97 +931,8 @@ ul[class*=block-grid] {
 	z-index: 1
 }
 
-#preftoc li,
 .mw-indicator {
 	display: inline-block;
-}
-
-#preftoc li a {
-	padding: .25em .5em;
-	color: #fff;
-}
-
-#preftoc li {
-	margin: 2px;
-	float: none;
-	padding: 1px;
-	position: relative;
-	list-style-type: none;
-	list-style-image: none;
-	z-index: 3;
-	border-radius: 3px;
-	font-size: .85em;
-	background: #142849;
-	border: 0;
-	color: #fff;
-}
-
-ul#preftoc {
-	margin: auto;
-	text-align: center;
-}
-
-#preftoc li.selected a {
-	cursor: default;
-	text-decoration: none;
-}
-
-#preferences table {
-	min-width: 100%;
-}
-
-#preftoc {
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	clear: both;
-}
-
-#preferences {
-	margin: 0;
-	clear: both;
-	background-color: #fff;
-	border: 0;
-}
-
-.prefsection {
-	border: 0;
-	padding: 0;
-	margin: 0;
-}
-
-.prefsection legend {
-	font-weight: 700;
-}
-
-.prefsection legend,
-.prefsection table {
-	background-color: #f9f9f9;
-}
-
-#preferences fieldset legend {
-	font-weight: 700;
-	padding: 0 .25em;
-	margin: 0 .25em 0 1em;
-	background: #fff;
-}
-
-td.htmlform-tip {
-	font-size: .8em;
-	padding: .2em 2em;
-	color: #666;
-	border: 1px solid #eeeffe;
-	background: #eeeffe;
-}
-
-.preferences-login {
-	clear: both;
-	margin-bottom: 1.5em;
-}
-
-.prefcache {
-	font-size: 90%;
-	margin-top: 1em;
 }
 
 .tleft {

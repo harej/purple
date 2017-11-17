@@ -68,6 +68,11 @@
 		"localBasePath": "",
 		"remoteSkinPath": "Purple"
 	},
+	"ResourceModuleSkinStyles": {
+		"purple": {
+			"+mediawiki.special.preferences.styles": "assets/stylesheets/mediawiki.special.preferences.styles.css"
+		}
+	},
 	"config": {},
 	"manifest_version": 1
 }

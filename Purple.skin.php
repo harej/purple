@@ -113,6 +113,8 @@ class PurpleTemplate extends BaseTemplate {
 		$skin = $this->getSkin();
 		$user = $skin->getUser();
 		$title = $skin->getTitle();
+
+		$this->data['pageLanguage'] = $title->getPageViewLanguage()->getHtmlCode();
 ?>
 <!-- START FOREGROUNDTEMPLATE -->
 		<nav class="top-bar" data-topbar role="navigation" data-options="back_text: <?php echo $skin->msg( 'purple-menunavback' )->text(); ?>">
@@ -245,17 +247,14 @@ class PurpleTemplate extends BaseTemplate {
 						</ul>
 						<!--RTL -->
 					<?php endif;
+					// Title#getNsText returns the namespace name with underscores
+					// (i.e. the DB key, such as "User_talk:Foo" instead of "User talk:Foo")
+					// so hence why we need to do this.
 					$namespace = str_replace( '_', ' ', $title->getNsText() );
-					$displaytitle = $this->data['title'];
 					if ( !empty( $namespace ) ) {
-						// @todo FIXME: $title is actually a Title object so
-						// this is relying on an implicit conversion to string
-						$pagetitle = $title;
-						$newtitle = str_replace( $namespace . ':', '', $pagetitle );
-						$displaytitle = str_replace( $pagetitle, $newtitle, $displaytitle );
 					?><h4 class="namespace label"><?php echo $namespace; ?></h4><?php } ?>
 					<div id="content" class="mw-body-content">
-					<h1 id="firstHeading" class="title"><?php echo $displaytitle; ?></h1>
+					<h1 id="firstHeading" class="title" lang="<?php $this->text( 'pageLanguage' ); ?>"><span dir="auto"><?php $this->html( 'title' ) ?></span></h1>
 					<?php if ( $this->data['isarticle'] ) { ?><h3 id="tagline"><?php $this->msg( 'tagline' ) ?></h3><?php } ?>
 					<h5 id="siteSub" class="subtitle"><?php $this->html( 'subtitle' ) ?></h5>
 					<div id="contentSub" class="clear_both"></div>

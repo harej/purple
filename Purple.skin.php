@@ -224,8 +224,6 @@ class PurpleTemplate extends BaseTemplate {
 				</div>
 		</div>
 
-		<div id="mw-js-message" style="display:none;"></div>
-
 		<div class="row">
 				<div id="p-cactions" class="large-12 columns">
 					<?php if ( $user->isLoggedIn() || $wgPurpleFeatures['showActionsForAnon'] ): ?>

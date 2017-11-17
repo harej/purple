@@ -16,7 +16,7 @@ class SkinPurple extends SkinTemplate {
 
 		parent::setupSkinUserCss( $out );
 
-		$wgPurpleFeaturesDefaults = array(
+		$wgPurpleFeaturesDefaults = [
 			'showActionsForAnon' => true,
 			'NavWrapperType' => 'divonly',
 			'showHelpUnderTools' => true,
@@ -27,7 +27,7 @@ class SkinPurple extends SkinTemplate {
 			'IeEdgeCode' => 1,
 			'showFooterIcons' => 0,
 			'addThisFollowPUBID' => ''
-		);
+		];
 
 		foreach ( $wgPurpleFeaturesDefaults as $fgOption => $fgOptionValue ) {
 			if ( !isset( $wgPurpleFeatures[$fgOption] ) ) {
@@ -71,8 +71,8 @@ class PurpleTemplate extends BaseTemplate {
 				$this->html( 'bodytext' );
 				$out = ob_get_contents();
 				ob_end_clean();
-				$markers = array( '&lt;a', '&lt;/a', '&gt;' );
-				$tags = array( '<a', '</a', '>' );
+				$markers = [ '&lt;a', '&lt;/a', '&gt;' ];
+				$tags = [ '<a', '</a', '>' ];
 				$body = str_replace( $markers, $tags, $out );
 				break;
 			default:
@@ -157,10 +157,10 @@ class PurpleTemplate extends BaseTemplate {
 					<form action="<?php $this->text( 'wgScript' ); ?>" id="searchform" class="mw-search">
 						<div class="row collapse">
 						<div class="small-12 columns">
-							<?php echo $this->makeSearchInput( array(
+							<?php echo $this->makeSearchInput( [
 								'placeholder' => $skin->msg( 'searchsuggest-search' )->text(),
 								'id' => 'searchInput'
-							) ); ?>
+							] ); ?>
 							<button type="submit" class="button search"><?php echo $skin->msg( 'search' )->text() ?></button>
 						</div>
 						</div>
@@ -229,7 +229,7 @@ class PurpleTemplate extends BaseTemplate {
 							<?php
 							foreach ( $this->data['content_actions'] as $key => $item ) {
 								echo preg_replace(
-									array( '/\sprimary="1"/', '/\scontext="[a-z]+"/', '/\srel="archives"/' ),
+									[ '/\sprimary="1"/', '/\scontext="[a-z]+"/', '/\srel="archives"/' ],
 									'',
 									$this->makeListItem( $key, $item )
 								);
@@ -237,7 +237,7 @@ class PurpleTemplate extends BaseTemplate {
 
 							// Avoid PHP 7.1 warnings
 							$tpl = $this;
-							Hooks::run( 'SkinTemplateToolboxEnd', array( &$tpl, true ) );
+							Hooks::run( 'SkinTemplateToolboxEnd', [ &$tpl, true ] );
 							?>
 						</ul>
 						<!--RTL -->

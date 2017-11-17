@@ -185,7 +185,8 @@ class PurpleTemplate extends BaseTemplate {
 					</ul>
 				</li>
 
-				<li id="personal-tools-dropdown" class="has-dropdown active"><a href="#"><i class="fa fa-user"></i>&nbsp;<?php echo $skin->msg( 'login' )->text() ?></a>
+				<li id="personal-tools-dropdown" class="has-dropdown active">
+					<a href="#"><i class="fa fa-user"></i>&nbsp;<?php echo $skin->msg( $user->isLoggedIn() ? 'purple-profile' : 'login' )->text() ?></a>
 					<ul class="dropdown">
 						<?php
 						foreach ( $this->getPersonalTools() as $key => $item ) {

@@ -46,7 +46,10 @@ class SkinPurple extends SkinTemplate {
 				break;
 		}
 
-		$out->addModuleStyles( 'skins.purple.styles' );
+		$out->addModuleStyles( [
+			'mediawiki.skinning.content.externallinks',
+			'skins.purple.styles'
+		] );
 	}
 
 	public function initPage( OutputPage $out ) {
@@ -251,7 +254,7 @@ class PurpleTemplate extends BaseTemplate {
 						$newtitle = str_replace( $namespace . ':', '', $pagetitle );
 						$displaytitle = str_replace( $pagetitle, $newtitle, $displaytitle );
 					?><h4 class="namespace label"><?php echo $namespace; ?></h4><?php } ?>
-					<div id="content">
+					<div id="content" class="mw-body-content">
 					<h1 id="firstHeading" class="title"><?php echo $displaytitle; ?></h1>
 					<?php if ( $this->data['isarticle'] ) { ?><h3 id="tagline"><?php $this->msg( 'tagline' ) ?></h3><?php } ?>
 					<h5 id="siteSub" class="subtitle"><?php $this->html( 'subtitle' ) ?></h5>

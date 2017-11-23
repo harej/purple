@@ -16,7 +16,7 @@ class SkinPurple extends SkinTemplate {
 
 		parent::setupSkinUserCss( $out );
 
-		$wgPurpleFeaturesDefaults = [
+		$defaultPurpleFeatureConfiguration = [
 			'showActionsForAnon' => true,
 			'NavWrapperType' => 'divonly',
 			'showHelpUnderTools' => true,
@@ -29,7 +29,7 @@ class SkinPurple extends SkinTemplate {
 			'addThisFollowPUBID' => ''
 		];
 
-		foreach ( $wgPurpleFeaturesDefaults as $fgOption => $fgOptionValue ) {
+		foreach ( $defaultPurpleFeatureConfiguration as $fgOption => $fgOptionValue ) {
 			if ( !isset( $wgPurpleFeatures[$fgOption] ) ) {
 				$wgPurpleFeatures[$fgOption] = $fgOptionValue;
 			}
